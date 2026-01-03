@@ -1,8 +1,19 @@
 
-
+import { Codeforces } from './codeforces.js';
 
 var codeforces = new Codeforces();
 var tmp;
+
+// Add event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+	document.getElementById('button0').addEventListener('click', sendURL);
+	document.getElementById('methodList').addEventListener('change', update);
+	document.getElementById('input0').addEventListener('keyup', function(event) {
+		if(event.keyCode == 13) {
+			document.getElementById('button0').click();
+		}
+	});
+});
 function ev(){
 	
 	codeforces.obj = JSON.parse(this.responseText);

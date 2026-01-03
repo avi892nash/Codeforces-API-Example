@@ -1,6 +1,6 @@
 
 
-function Codeforces(){
+export function Codeforces(){
 	this.alpha = 0;
 	this.url = "http://codeforces.com/api/user.info?handles=";
 	this.meathod = "user";

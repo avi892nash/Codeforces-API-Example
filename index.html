@@ -17,7 +17,7 @@
 	
 
 	<div class="w3-container">
-	<select name="meathodList" class = "w3-hover-light-green w3-padding" style = "width: 30%" onchange="update()">
+	<select name="meathodList" id="methodList" class = "w3-hover-light-green w3-padding" style = "width: 30%">
 
 		<option value="user">User Info</option>
 		<option value="blogEntry">Blog Entry</option>
@@ -28,9 +28,9 @@
 		<option value="submission">Submission</option>
 	</select>
 
-	<input class="w3-border w3-hover-light-green  w3-padding" style="width: 48%" type="text" onkeyup="if(event.keyCode==13)document.getElementById('button0').click();" name="Handle" id="input0">
-	
-	<button class="w3-green" style = "padding-top: 8px;padding-bottom: 6px;width : 20%" id="button0" onclick="sendURL()" >Submit</button>
+	<input class="w3-border w3-hover-light-green  w3-padding" style="width: 48%" type="text" name="Handle" id="input0">
+
+	<button class="w3-green" style = "padding-top: 8px;padding-bottom: 6px;width : 20%" id="button0">Submit</button>
 	</div>
 
 	<h1 id="para" >Welcome</h1>
