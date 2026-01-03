@@ -44,41 +44,41 @@ function update(){
 	document.getElementById("input0").style.display = "";
 
 	if(codeforces.meathod == "user"){
-		
+
 		hea.innerHTML = " Enter Your Codeforces Handle";
-		codeforces.url = "http://codeforces.com/api/user.info?handles=";
+		codeforces.url = "https://codeforces.com/api/user.info?handles=";
 	}else if(codeforces.meathod == "blogEntry"){
-		
-		hea.innerHTML = " Enter Id Of The Blog";		
-		codeforces.url = "http://codeforces.com/api/blogEntry.view?blogEntryId=";
+
+		hea.innerHTML = " Enter Id Of The Blog";
+		codeforces.url = "https://codeforces.com/api/blogEntry.view?blogEntryId=";
 	}else if(codeforces.meathod == "recentAction"){
-		
+
 		//max 30
 		hea.innerHTML = "Submit To Get Max(30) Recent Action";
 		document.getElementById("input0").style.display = "none";
 		document.getElementById("recentAction").style.display = "none";
-		codeforces.url = "http://codeforces.com/api/recentActions?maxCount=30";
+		codeforces.url = "https://codeforces.com/api/recentActions?maxCount=30";
 	}else if(codeforces.meathod == "ratingChange"){
-		
+
 	document.getElementById("ratingChange").style.display = "none";
 		hea.innerHTML = " Enter Your Codeforces Handle";
-		codeforces.url = "http://codeforces.com/api/user.rating?handle=";
+		codeforces.url = "https://codeforces.com/api/user.rating?handle=";
 	}else if(codeforces.meathod == "contest"){
-		
+
 		hea.innerHTML = "Submit To Get contest with gym=true";
 		document.getElementById("input0").style.display = "none";
-		codeforces.url = "http://codeforces.com/api/contest.list?gym=true";
+		codeforces.url = "https://codeforces.com/api/contest.list?gym=true";
 	}else if(codeforces.meathod == "problem"){
-		
+
 	document.getElementById("Problem").style.display = "none";
 		hea.innerHTML = "Enter The Tag Of Problems";
-		codeforces.url = "http://codeforces.com/api/problemset.problems?tags=";
+		codeforces.url = "https://codeforces.com/api/problemset.problems?tags=";
 	}else if(codeforces.meathod == "submission"){
-		
+
 		//max = 10
 		hea.innerHTML = "Submit To Get Recent Submission max(10)";
 		document.getElementById("input0").style.display = "none";
-		codeforces.url = "http://codeforces.com/api/problemset.recentStatus?count=10";
+		codeforces.url = "https://codeforces.com/api/problemset.recentStatus?count=10";
 	}
 }
 
@@ -126,7 +126,7 @@ function display(obj,meathod){
 		document.getElementById("content").innerHTML = obj.content;
 		document.getElementById("blogEntry").style.display="";
 		document.getElementById("comment").innerHTML = "";
-		getComment("http://codeforces.com/api/blogEntry.comments?blogEntryId="+obj.id);
+		getComment("https://codeforces.com/api/blogEntry.comments?blogEntryId="+obj.id);
 
 	}else if(meathod == "blogEntryComment"){
 		var jagah = document.getElementById("comment");
