@@ -6,6 +6,11 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  AWS_REGION: ap-south-1
+  S3_BUCKET: devshram.com
+  CLOUDFRONT_DISTRIBUTION_ID: E2RU8A6DN1OCFF
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -30,15 +35,14 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::532197675314:role/avi89nash_s3_upload
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy to S3
         run: |
-          aws s3 sync ./dist s3://${{ secrets.S3_BUCKET_NAME }}/projects/codeforces-api-example --delete
+          aws s3 sync ./dist s3://${{ env.S3_BUCKET }}/projects/codeforces-api-example --delete
 
-      - name: Invalidate CloudFront cache (optional)
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+      - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/projects/codeforces-api-example/*"
