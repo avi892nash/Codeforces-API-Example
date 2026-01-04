@@ -43,6 +43,7 @@ jobs:
       - name: Deploy to S3
         run: |
           aws s3 sync ./dist s3://${{ env.S3_BUCKET }}/projects/codeforces-api-example --delete
+          aws s3 cp ./main.png s3://${{ env.S3_BUCKET }}/projects/codeforces-api-example/main.png --content-type image/png
 
       - name: Invalidate CloudFront cache
         run: |
